@@ -4,15 +4,15 @@ CREATE USER user_test IDENTIFIED BY 'passwd_test';
 GRANT ALL ON `eform_tracker`.* TO user_test;
 FLUSH PRIVILEGES;
 CREATE TABLE eform (
-  eform INT PRIMARY KEY,
-  pri INT,
-  seq INT,
-  queue VARCHAR(12),
-  added_by VARCHAR(8),
-  sent_by VARCHAR(8),
-  sent_on TIMESTAMP,
-  summary VARCHAR(250),
-  workflow ENUM(
+  Eform INT PRIMARY KEY,
+  PRI INT,
+  Seq INT,
+  Queue VARCHAR(12),
+  `Added By` VARCHAR(8),
+  `Sent By` VARCHAR(8),
+  `Sent On` TIMESTAMP,
+  Summary VARCHAR(250),
+  Workflow ENUM(
     '1-In Review',
     '2-For Approval',
     '3-Approved To Do',
@@ -21,7 +21,7 @@ CREATE TABLE eform (
     '5-In Progress',
     '6-Work Complete'
   ),
-  changed_on TIMESTAMP,
-  changed_by VARCHAR(8),
-  need_by DATE
+  `Changed On` TIMESTAMP,
+  `Changed By` VARCHAR(8),
+  `Need By` DATE
 );
