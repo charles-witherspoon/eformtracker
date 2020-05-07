@@ -25,3 +25,14 @@ CREATE TABLE eform (
   `Changed By` VARCHAR(8),
   `Need By` DATE
 );
+CREATE TABLE employee (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(8)
+);
+CREATE TABLE subscription (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  employee_id INT,
+  eform INT,
+  FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE,
+  FOREIGN KEY (eform) REFERENCES eform(Eform) ON DELETE CASCADE
+);

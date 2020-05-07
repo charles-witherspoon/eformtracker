@@ -14,7 +14,6 @@ public class Database {
 	private static final String URL = "jdbc:mysql://localhost:3306/eform_tracker";
 	private static final String USER = "user_test";
 	private static final String PASSWORD = "passwd_test";
-	private static final String PROJECT_DIR = System.getProperty("user.dir");
 	private static Database singletonDatabase;
 	private PreparedStatement preparedStatement;
 	private String tables[];
@@ -25,9 +24,11 @@ public class Database {
 		Class.forName(DRIVER);
 		
 		// Open connection
+		System.out.println("Opening connection to database...");
 		connection = DriverManager.getConnection(URL, USER, PASSWORD);
 		
 		// Get tables
+		System.out.println("Getting tables...");
 		tables = getTables();
 	}
 	

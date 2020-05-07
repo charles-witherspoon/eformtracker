@@ -16,6 +16,21 @@ public class Server {
 			HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 4444), 0);
 			Database db = Database.getDatabase();
 			
+			//TODO add support for multiple tables/CSV files
+			
+			
+			
+			// Load database from CSV before starting server
+			CsvInserter csv = new CsvInserter(db, "eform.csv");
+			
+			// Build INSERT statement
+			csv.buildInsert();
+			
+			// Insert records
+			csv.insertRecords();
+			
+			
+			
 			// Create thread pool for asynchronous requests
 			ThreadPoolExecutor threadPoolExecutor = 
 					(ThreadPoolExecutor)Executors.newFixedThreadPool(10);

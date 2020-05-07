@@ -7,6 +7,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.sun.net.httpserver.HttpExchange;
@@ -75,7 +76,7 @@ public class RequestHandler implements HttpHandler {
 
 	// parse URI query string and return a SELECT query string
 	private String buildSelectQuery(String htmlQuery) {
-		Map<String, ArrayList<String>> params = new LinkedHashMap<>();
+		Map<String, List<String>> params = new LinkedHashMap<>();
 		String[] pairs = htmlQuery.split("&");
 
 		// Support multiple values for a key
